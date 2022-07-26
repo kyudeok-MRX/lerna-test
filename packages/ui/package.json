@@ -1,23 +1,39 @@
 {
-  "name": "ui",
+  "name": "@toaonly-makina/ui",
   "private": true,
   "version": "0.0.1",
   "type": "module",
+  "main": "dist/ui.umd.js",
+  "types": "dist/src/index.d.ts",
+  "files": [
+    "dist/*.d.ts",
+    "dist/*.js"
+  ],
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "dev": "concurrently -r \"tsc -w\" \"tsc -w --project ./tsconfig.build.json\" \"vite build -w --mode development\"",
+    "build": "tsc && tsc --project ./tsconfig.build.json && vite build",
     "preview": "vite preview",
-    "publish": "npm publish"
+    "pub": "npm publish"
   },
   "dependencies": {
+    "lodash-es": "^4.17.21",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router": "^6.3.0",
+    "react-router-dom": "^6.3.0",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
+    "@rollup/plugin-alias": "^3.1.9",
+    "@types/lodash": "^4.14.182",
+    "@types/lodash-es": "^4.17.6",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
+    "@types/styled-components": "^5.1.25",
     "@vitejs/plugin-react": "^2.0.0",
+    "concurrently": "^7.3.0",
     "typescript": "^4.6.4",
-    "vite": "^3.0.0"
+    "vite": "^3.0.0",
+    "vite-svg-loader": "^3.4.0"
   }
 }
