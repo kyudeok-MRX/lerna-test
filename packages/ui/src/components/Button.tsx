@@ -19,7 +19,7 @@ export const Button = styled.button<ButtonProps>`
   &:hover {
     background-color: ${({ bgColor }) => {
       if (!bgColor) return
-      
+
       const rgba = new RGBA(bgColor!)
 
       rgba.alpha = 0.95

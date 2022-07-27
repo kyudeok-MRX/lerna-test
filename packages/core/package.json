@@ -3,11 +3,18 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "main": "dist/core.umd.js",
-  "types": "dist/src/index.d.ts",
+  "main": "./dist/core.umd.cjs",
+  "module": "./dist/core.js",
+  "exports": {
+    ".": {
+      "import": "./dist/core.js",
+      "require": "./dist/core.umd.cjs"
+    }
+  },
+  "types": "./dist/src/index.d.ts",
   "files": [
-    "dist/*.d.ts",
-    "dist/*.js"
+    "./dist/*.d.ts",
+    "./dist/*.js"
   ],
   "scripts": {
     "dev": "concurrently -r \"tsc -w\" \"tsc -w --project ./tsconfig.build.json\" \"vite build -w --mode development\"",
